@@ -2,7 +2,7 @@ package 牛客;
 
 import java.util.Arrays;
 
-public class NC_140_BubbleSort {
+public class NC_140_冒泡排序 {
     public static void main(String[] args) {
         int[] arr = {5,4,3,2,8,123,5,1,55,1223,1,2,1};
         bubbleSort(arr);
@@ -18,7 +18,7 @@ public class NC_140_BubbleSort {
         for (int i = 1 ; i < arr.length ; i++) {
             for (int j = 0 ; j < i; j++) {
                 if (arr[i] < arr[j]) {
-                    NC_140_QuickSort.swap(arr, i, j);
+                    NC_140_快速排序.swap(arr, i, j);
                 }
             }
         }

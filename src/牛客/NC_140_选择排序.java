@@ -2,7 +2,7 @@ package 牛客;
 
 import java.util.Arrays;
 
-public class NC_140_SelectSort {
+public class NC_140_选择排序 {
 
     public static void main(String[] args) {
         int[] arr = {5,4,3,2,8,123,5,1,55,1223,1,2,1};
@@ -24,7 +24,7 @@ public class NC_140_SelectSort {
             for (int j = i + 1; j < arr.length ; j ++) {
                 minIndex = arr[j] < arr[minIndex] ? j : minIndex;
             }
-            NC_140_QuickSort.swap(arr, i ,minIndex);
+            NC_140_快速排序.swap(arr, i ,minIndex);
         }
     }
 }
