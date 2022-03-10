@@ -1,10 +1,10 @@
 package LeetCode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class LC_1380_幸运数 {
+
     public static void main(String[] args) {
         int[][] matrix = {{3,7,8},{9,11,13},{15,16,17}};
         System.out.println(luckyNumbers(matrix));
