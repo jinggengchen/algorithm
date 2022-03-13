@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class LC_340_至多包含K个不同字符的最长子串 {
     public static void main(String[] args) {
-        int eceab = lengthOfLongestSubstringKDistinct("eceab", 2);
+        int eceab = lengthOfLongestSubstringKDistinct("eceab", 3);
         System.out.println(eceab);
     }
     public static int lengthOfLongestSubstringKDistinct(String s, int k) {
@@ -40,7 +40,7 @@ public class LC_340_至多包含K个不同字符的最长子串 {
                 }
                 left ++;
             }else {
-                maxLen = Math.max(maxLen, right - left);
+                maxLen = Math.max(maxLen, right - left + 1);
             }
 
             right ++;
