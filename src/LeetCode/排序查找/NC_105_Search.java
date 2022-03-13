@@ -1,4 +1,4 @@
-package 牛客;
+package LeetCode.排序查找;
 
 public class NC_105_Search {
     public static void main(String[] args) {

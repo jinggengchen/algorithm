@@ -1,4 +1,4 @@
-package 剑指offer;
+package LeetCode.二叉树;
 
 public class TreeLinkNode {
     int val;

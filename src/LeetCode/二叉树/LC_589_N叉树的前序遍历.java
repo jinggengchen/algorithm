@@ -1,4 +1,6 @@
-package LeetCode;
+package LeetCode.二叉树;
+
+
 
 import java.util.ArrayList;
 import java.util.List;

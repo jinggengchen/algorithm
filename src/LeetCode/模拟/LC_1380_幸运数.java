@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.模拟;
 
 import java.util.ArrayList;
 import java.util.List;

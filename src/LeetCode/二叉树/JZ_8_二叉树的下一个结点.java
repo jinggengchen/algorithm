@@ -1,4 +1,4 @@
-package 剑指offer;
+package LeetCode.二叉树;
 
 public class JZ_8_二叉树的下一个结点 {
     public static void main(String[] args) {

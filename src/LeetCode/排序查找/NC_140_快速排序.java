@@ -1,4 +1,4 @@
-package 牛客;
+package LeetCode.排序查找;
 
 import java.util.Arrays;
 
