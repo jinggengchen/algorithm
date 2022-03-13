@@ -29,4 +29,21 @@ public class LC_159_至多包含两个不同字符的最长子串 {
         }
         return res;
     }
+    public int lengthOfLongestSubstring(String s) {
+        // key 表示当前的字符
+        // value 表示当前字符出现的位置
+        char[] ss = s.toCharArray();
+        int res = 0;
+        Map<Character, Integer> map = new HashMap();
+
+        for (int i = 0, j = 0; j < ss.length;j ++) {
+            if (map.containsKey(ss[j])) {
+                i = Math.max(i,map.get(ss[j]));
+            }
+            res = Math.max(res, j - i + 1);
+            map.put(ss[j],j + 1);
+        }
+        return res;
+
+    }
 }
