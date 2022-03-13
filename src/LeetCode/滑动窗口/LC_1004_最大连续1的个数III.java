@@ -13,26 +13,25 @@ public class LC_1004_最大连续1的个数III {
 
     }
     public static int longestOnes(int[] nums, int k) {
-        int left = 0;
-        int right = 0;
+        int left = 0, right = 0;
         int res = 0;
-        int zere_count = 0;
-        // 右指针每次都向右移动，移动的过程中判断0的个数，如果0的个数大于k，就说明需要移动左指针了
-        // 左指针的移动的时候，如果该位置是0，就需要吧0的个数-1
+        int zeroCount = 0;
         while (right < nums.length) {
             int num = nums[right];
             if (num == 0) {
-                zere_count++;
+                zeroCount ++;
             }
-            while (zere_count > k) {
-                if (nums[left] == 0) {
-                    zere_count --;
+            while (zeroCount > k) {
+                int n = nums[left];
+                if (n == 0) {
+                    zeroCount --;
                 }
                 left ++;
             }
-            res = Math.max(res, right - left + 1);
+            res = Math.max(res, right - left +1);
+
             right ++;
         }
-        return  res;
+        return res;
     }
 }
