@@ -20,7 +20,7 @@ public class LC_395_至少有K个重复字符的最长子串 {
         }
         for (Character c : map.keySet()) {
             int res = 0;
-            if (map.get(c) > k) {
+            if (map.get(c) < k) {
                 for (String s1 : s.split(String.valueOf(c))) {
                     res = Math.max(res, longestSubstring(s1,k));
                 }
