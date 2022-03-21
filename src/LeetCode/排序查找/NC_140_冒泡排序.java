@@ -18,9 +18,14 @@ public class NC_140_冒泡排序 {
         for (int i = 1 ; i < arr.length ; i++) {
             for (int j = 0 ; j < i; j++) {
                 if (arr[i] < arr[j]) {
-                    NC_140_快速排序.swap(arr, i, j);
+                    swap(arr, i, j);
                 }
             }
         }
+    }
+    public static void swap(int[] arr, int L, int R) {
+        int tmp = arr[L];
+        arr[L] = arr[R];
+        arr[R] = tmp;
     }
 }

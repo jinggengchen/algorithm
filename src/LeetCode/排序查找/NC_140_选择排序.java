@@ -16,15 +16,22 @@ public class NC_140_选择排序 {
     // 在1 - n上面找最小的放在第二个
     // 在2 - n上面找最小的放在第三个
     public static void selectSort(int[] arr) {
-        if (arr.length < 2 || arr == null) {
+        if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0 ; i < arr.length; i ++) {
+        for (int i = 0; i < arr.length; i++) {
+            // minIndex 是最小的位置，假设初始时最小位置是0
             int minIndex = i;
-            for (int j = i + 1; j < arr.length ; j ++) {
-                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+            for (int j = i + 1; j < arr.length; j++) {
+                minIndex = arr[minIndex] < arr[j] ? minIndex : j;
             }
-            NC_140_快速排序.swap(arr, i ,minIndex);
+            swap(arr, i, minIndex);
         }
+    }
+
+    public static void swap(int[] arr, int L, int R) {
+        int tmp = arr[L];
+        arr[L] = arr[R];
+        arr[R] = tmp;
     }
 }
