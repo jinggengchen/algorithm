@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package LeetCode.排序查找;
 
 public class NC_140_归并排序 {
@@ -32,7 +32,5 @@ public class NC_140_归并排序 {
             nums[l + m] = tmp[m];
         }
     }
-=======
-package LeetCode.排序查找;public class NC_140_归并排序 {
->>>>>>> ce3baa9d7d1e3309dbc03f7e9b8d3e55ac7472a2
+
 }
