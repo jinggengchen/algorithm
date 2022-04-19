@@ -54,4 +54,15 @@ public class LC_92_从m到n反转链表 {
         }
         return pre;
     }
+    // 1 2 3 4 5
+    // 5>4>3>2<1
+    private static ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode listNode = reverseList1(head.next);
+        head.next.next = head;
+        head.next = null;
+        return listNode;
+    }
 }
