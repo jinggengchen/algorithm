@@ -3,6 +3,10 @@ package LeetCode.回溯;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 输入：nums = [1,2,3]
+ * 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+ */
 public class LC_46_全排列 {
     public static void main(String[] args) {
         System.out.println(permute(new int[]{1,2,3}));
