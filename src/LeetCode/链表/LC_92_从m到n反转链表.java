@@ -20,14 +20,17 @@ public class LC_92_从m到n反转链表 {
     // 0 123   412  213 992        1
     // pre leftnode   rightnode next
     public static ListNode reverseBetween(ListNode head, int left, int right) {
+        // inv 虚拟节点
         ListNode inv = new ListNode(0);
         inv.next = head;
         ListNode pre = inv;
         // pre 为需要反转的区间的前一个节点
+        // cur 为需要反转的区间的后一个节点
         for (int i = 0; i < left - 1; i ++) {
             pre = pre.next;
         }
         // rightNode为需要反转的区间最后一个节点
+        // leftNode为需要饭庄的区间的第一个节点
         ListNode rightNode = pre;
         for (int j = 0; j < right - left + 1; j++) {
             rightNode = rightNode.next;
