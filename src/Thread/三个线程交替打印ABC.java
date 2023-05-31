@@ -13,6 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class 三个线程交替打印ABC {
     private static int state = 1;
+    private static int sum = 0;
     static Lock lock = new ReentrantLock();
     static Condition conditionA = lock.newCondition();
     static Condition conditionB = lock.newCondition();
@@ -40,10 +41,14 @@ public class 三个线程交替打印ABC {
     public static void printA() {
         lock.lock();
         try {
+            // 打印A需要满足state = 1
             while (state != 1) {
                 conditionA.await();
             }
-            System.out.println(Thread.currentThread().getName() + "-A");
+            if (sum == 100) {
+                return;
+            }
+            System.out.println(Thread.currentThread().getName() + sum++);
             conditionB.signal();
             state = 2;
         } catch (Exception e) {
@@ -58,7 +63,10 @@ public class 三个线程交替打印ABC {
             while (state != 2) {
                 conditionB.await();
             }
-            System.out.println(Thread.currentThread().getName() + "-B");
+            if (sum == 100) {
+                return;
+            }
+            System.out.println(Thread.currentThread().getName() + sum++);
             conditionC.signal();
             state = 3;
         } catch (Exception e) {
@@ -73,7 +81,10 @@ public class 三个线程交替打印ABC {
             while (state != 3) {
                 conditionC.await();
             }
-            System.out.println(Thread.currentThread().getName() + "-C");
+            if (sum == 100) {
+                return;
+            }
+            System.out.println(Thread.currentThread().getName() + sum++);
             conditionA.signal();
             state = 1;
         } catch (Exception e) {

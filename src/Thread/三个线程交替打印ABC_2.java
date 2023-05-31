@@ -18,7 +18,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * acquire()方法里对state变量进行CAS减操作。减到0的时候，线程阻塞。
  * release()方法里对state变量进行CAS加操作。
  *
- * state他的业务含义是：资源的总数，比如说state的值是1，那么n个线程只有1个线程会获取到该资源，其他的线程都会阻塞。直到有线程释放了该资源。其他线程才能获取到。
+ * state他的业务含义是：资源的总数，比如说state的值是1，
+ * 那么n个线程只有1个线程会获取到该资源，其他的线程都会阻塞。
+ * 直到有线程释放了该资源。其他线程才能获取到。
  *
  */
 public class 三个线程交替打印ABC_2 {

@@ -11,13 +11,13 @@ public class LC_92_从m到n反转链表 {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-        System.out.println(reverseBetween(node1, 2, 4));
+        System.out.println(reverseBetween1(node1, 2, 4));
         while(node1 != null) {
             System.out.println(node1.val);
             node1 = node1.next;
         }
     }
-    // 0 123   412  213 992        1
+    // 1 -> 2 -> 3 -> 4 -> 5 -> null
     // pre leftnode   rightnode next
     public static ListNode reverseBetween(ListNode head, int left, int right) {
         // inv 虚拟节点
@@ -67,5 +67,32 @@ public class LC_92_从m到n反转链表 {
         head.next.next = head;
         head.next = null;
         return listNode;
+    }
+    //           2         4
+    // 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> null
+    // 0 -> 1 -> 4 -> 3 -> 2 -> 5 -> null
+    public static ListNode reverseBetween1(ListNode head, int left, int right) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode node = dummy;
+        for (int i = 0; i < left - 1; i++) {
+            if (node == null) {
+                break;
+            }
+            node = node.next;
+        }
+        ListNode leftNode = node.next;
+        ListNode rightNode = dummy;
+        for (int i = 0; i < right; i++) {
+            rightNode = rightNode.next;
+        }
+        ListNode end = rightNode.next;
+        rightNode.next = null;
+        node.next = null;
+        ListNode reverse = reverseList(leftNode);
+        node.next = reverse;
+        leftNode.next = end;
+        return dummy.next;
     }
 }

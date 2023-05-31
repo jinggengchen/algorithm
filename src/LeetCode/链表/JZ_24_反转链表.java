@@ -1,6 +1,8 @@
 package LeetCode.链表;
 
 
+import java.util.List;
+
 public class JZ_24_反转链表 {
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -18,7 +20,7 @@ public class JZ_24_反转链表 {
     public static ListNode reverseList(ListNode head) {
         ListNode cur = head;
         ListNode pre = null;
-        while(cur != null) {
+        while (cur != null) {
             ListNode temp = cur.next;
             cur.next = pre;
             pre = cur;
@@ -26,4 +28,20 @@ public class JZ_24_反转链表 {
         }
         return pre;
     }
+
+    // 1->2<-3<-4
+    //   null
+    public static ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // listnode是末尾元素 4
+        ListNode listNode = reverseList1(head.next);
+        //
+        head.next.next = head;
+        head.next = null;
+        return listNode;
+    }
+
+
 }

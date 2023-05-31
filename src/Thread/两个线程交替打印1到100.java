@@ -11,6 +11,7 @@ public class 两个线程交替打印1到100 {
     static Lock lock = new ReentrantLock();
     static Condition condition1 = lock.newCondition();
     static Condition condition2 = lock.newCondition();
+    static Condition condition3 = lock.newCondition();
     public static void main(String[] args) {
         new Thread(() -> {
             for (int i = 0; i < 100; i++) {
@@ -23,6 +24,12 @@ public class 两个线程交替打印1到100 {
                 printB();
             }
         }, "B").start();
+
+        new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
+                printC();
+            }
+        }, "C").start();
     }
 
 
@@ -42,6 +49,23 @@ public class 两个线程交替打印1到100 {
         }
     }
 
+    private static void printC() {
+        try {
+            lock.lock();
+            while (state != 0) {
+                condition2.await();
+            }
+            System.out.println(Thread.currentThread().getName() + ": " + num++);
+            state = 1;
+            condition1.signal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    //
     private static void printA() {
         try {
             lock.lock();

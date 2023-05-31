@@ -23,6 +23,7 @@ public class LC_46_全排列 {
         return res;
     }
 
+
     private static void dfs(int start, int[] nums) {
 
         if (start == nums.length) {
